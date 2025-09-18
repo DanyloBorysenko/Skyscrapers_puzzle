@@ -5,7 +5,6 @@ int	validate(int args_count, char **args)
 	int	digit_count;
 	int	i;
 
-	(void)args;
 	if (args_count != 2)
 		return (-1);
 	digit_count = 0;

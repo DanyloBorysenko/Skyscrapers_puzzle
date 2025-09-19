@@ -3,7 +3,7 @@ INC_DIR = includes
 SRC_DIR = srcs
 CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
 HEADER = $(INC_DIR)/skyscrapers.h
-MY_SOURCES = $(SRC_DIR)/main.c $(SRC_DIR)/validate.c $(SRC_DIR)/parse.c
+MY_SOURCES = $(SRC_DIR)/main.c $(SRC_DIR)/validate.c $(SRC_DIR)/parse.c $(SRC_DIR)/solve.c $(SRC_DIR)/board.c
 MY_OBJ = $(MY_SOURCES:.c=.o)
 NAME = skyscrapers
 

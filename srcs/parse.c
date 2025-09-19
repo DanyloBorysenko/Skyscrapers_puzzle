@@ -1,5 +1,4 @@
 #include "skyscrapers.h"
-#include <stdlib.h>
 
 char *del_sps(char *str)
 {
@@ -10,6 +9,8 @@ char *del_sps(char *str)
 
 	dig_count = 16;
 	res = malloc((dig_count + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (str[i])
@@ -31,6 +32,8 @@ char *get_dup(char *src, int start_ind)
 	int		i;
 
 	dup = malloc(5 *sizeof(char));
+	if (!dup)
+		return (NULL);
 	i = 0;
 	while (i < 4)
 	{
@@ -50,6 +53,8 @@ char **get_tips(char **args)
 
 	digits = del_sps(args[1]);
 	tips = malloc(4 * sizeof(char *));
+	if (!tips)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (i < 4)
@@ -58,5 +63,6 @@ char **get_tips(char **args)
 		i++;
 		j += 4;
 	}
+	free(digits);
 	return (tips);
 }

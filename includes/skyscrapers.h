@@ -11,5 +11,6 @@ int	solve(char **tips);
 char **get_empt_brd(int	size);
 void print_brd(char **arr, int size);
 void free_brd(char **arr, int size);
+int	is_full(char **arr, int size);
 
 #endif

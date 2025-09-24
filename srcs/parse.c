@@ -11,7 +11,7 @@ int	get_size(char *str)
 			continue;
 		dig_count++;
 	}
-	if (dig_count % 4 != 0)
+	if (dig_count % 4 != 0 || dig_count > 36)
 	{
 		printf("wrong digits count\n");
 		return (0);

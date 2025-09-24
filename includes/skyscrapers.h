@@ -12,5 +12,7 @@ int	solve(char **tips, char **final_board, int size);
 char **get_empt_brd(int	size);
 void print_brd(char **arr, int size);
 void free_brd(char **arr, int size);
+int	check_unq_row(char **arr, int row_ind, int size);
+int	check_unq_col(char **arr, int col_ind, int size);
 
 #endif

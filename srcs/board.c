@@ -40,22 +40,6 @@ void print_brd(char **arr, int size)
 	}
 }
 
-int	is_full(char **arr, int size)
-{
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; arr[i][j] != '\0'; j++)
-		{
-			if (arr[i][j] == '0')
-			{
-				return (0);
-			}
-		}
-
-	}
-	return (1);
-}
-
 void free_brd(char **arr, int size)
 {
 	for (int i = 0; i < size; i++)

@@ -1,13 +1,32 @@
 #include "skyscrapers.h"
 
-char *del_sps(char *str)
+int	get_size(char *str)
+{
+	int	dig_count;
+
+	dig_count = 0;
+	for (int i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == ' ')
+			continue;
+		dig_count++;
+	}
+	if (dig_count % 4 != 0)
+	{
+		printf("wrong digits count\n");
+		return (0);
+	}
+	return (dig_count / 4);
+}
+
+char *del_sps(char *str, int size)
 {
 	char	*res;
 	int	dig_count;
 	int	i;
 	int	j;
 
-	dig_count = 16;
+	dig_count = size * 4;
 	res = malloc((dig_count + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
@@ -26,16 +45,16 @@ char *del_sps(char *str)
 	return (res);
 }
 
-char *get_dup(char *src, int start_ind)
+char *get_dup(char *src, int start_ind, int size)
 {
 	char 	*dup;
 	int		i;
 
-	dup = malloc(5 *sizeof(char));
+	dup = malloc((size + 1) *sizeof(char));
 	if (!dup)
 		return (NULL);
 	i = 0;
-	while (i < 4)
+	while (i < size)
 	{
 		dup[i] = src[start_ind + i];
 		i++;
@@ -44,14 +63,14 @@ char *get_dup(char *src, int start_ind)
 	return (dup);
 }
 
-char **get_tips(char **args)
+char **get_tips(char *arg, int size)
 {
 	char	**tips;
 	char	*digits;
 	int	i;
 	int	j;
 
-	digits = del_sps(args[1]);
+	digits = del_sps(arg, size);
 	tips = malloc(4 * sizeof(char *));
 	if (!tips)
 		return (NULL);
@@ -59,9 +78,9 @@ char **get_tips(char **args)
 	j = 0;
 	while (i < 4)
 	{
-		tips[i] = get_dup(digits, j);
+		tips[i] = get_dup(digits, j, size);
 		i++;
-		j += 4;
+		j += size;
 	}
 	free(digits);
 	return (tips);
